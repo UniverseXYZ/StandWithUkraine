@@ -15,7 +15,7 @@ contract StandWithUkraine is AbstractERC1155Factory  {
         string memory _symbol,
         string memory _ipfs,
         address _multsig
-    ) ERC1155("ipfs://") {
+    ) ERC1155("") {
         name_ = _name;
         symbol_ = _symbol;
         ipfs = _ipfs;
