@@ -9,15 +9,15 @@ async function main() {
   mintPass = await MintPassFactory.deploy("StandWithUkraine", "SWU", "ipfs://123/", "0x0000000000000000000000000000000000000000");
     
   console.log("MintPass deployed to:", mintPass.address);
-  await mintPass.mint(0, 5);
-  let uri = await mintPass.uri(0);
-  console.log("uri: ", uri)
-  await mintPass.mint(1, 5);
-  uri = await mintPass.uri(1);
-  console.log("uri: ", uri)
-  await mintPass.mint(2, 5);
-  uri = await mintPass.uri(2);
-  console.log("uri: ", uri)
+  // await mintPass.mint(0, 5);
+  // let uri = await mintPass.uri(0);
+  // console.log("uri: ", uri)
+  // await mintPass.mint(1, 5);
+  // uri = await mintPass.uri(1);
+  // console.log("uri: ", uri)
+  // await mintPass.mint(2, 5);
+  // uri = await mintPass.uri(2);
+  // console.log("uri: ", uri)
 
 }
 
