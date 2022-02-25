@@ -4,16 +4,6 @@ require("dotenv").config();
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 
-const accounts = {mnemonic: `${process.env.MNEMONIC}`, accountsBalance: "99990000000000000000000"};
-
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-  const accounts = await hre.ethers.getSigners();
-
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
-
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -24,16 +14,15 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      accounts: accounts,
       blockGasLimit: 922450000
     },
     rinkeby: {
-      url: `${process.env.RINKEBY_KEY}`,
-      accounts: accounts
+      url: `${process.env.RINKEBY_NODE}`,
+      accounts: [`${process.env.RINKEBY_KEY}`,]
     },
     mainnet: {
-      url: `${process.env.MAINNET_KEY}`,
-      accounts: accounts
+      url: `${process.env.MAINNET_NODE}`,
+      accounts: [`${process.env.MAINNET_KEY}`,]
     }    
   },
   solidity: {
