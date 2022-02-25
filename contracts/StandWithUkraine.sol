@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "@openzeppelin/contracts/utils/Counters.sol";
 import './AbstractERC1155Factory.sol';
 import "@openzeppelin/contracts/utils/Strings.sol";
 
