@@ -5,18 +5,18 @@ async function main() {
   
   now = Math.round(Date.now() / 1000);
 
-  MintPassFactory = await ethers.getContractFactory("StandWithUkraine");
-  mintPass = await MintPassFactory.deploy("StandWithUkraine", "SWU", "ipfs://123/", "0x0000000000000000000000000000000000000000");
+  SWU = await ethers.getContractFactory("StandWithUkraine");
+  swu = await SWU.deploy("StandWithUkraine", "SWU", "ipfs://123/", "0x0000000000000000000000000000000000000000");
     
-  console.log("MintPass deployed to:", mintPass.address);
-  await mintPass.mint(0, 5);
-  let uri = await mintPass.uri(0);
+  console.log("SWU deployed to:", swu.address);
+  await swu.mint(0, 5);
+  let uri = await swu.uri(0);
   console.log("uri: ", uri)
-  await mintPass.mint(1, 5);
-  uri = await mintPass.uri(1);
+  await swu.mint(1, 5);
+  uri = await swu.uri(1);
   console.log("uri: ", uri)
-  await mintPass.mint(2, 5);
-  uri = await mintPass.uri(2);
+  await swu.mint(2, 5);
+  uri = await swu.uri(2);
   console.log("uri: ", uri)
 
 }
