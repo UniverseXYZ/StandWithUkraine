@@ -45,7 +45,10 @@ contract StandWithUkraine is AbstractERC1155Factory  {
         _mint(msg.sender, id, amount, "");
     }
 
-    function mintAll(uint256 amount){
+    function mintAll(uint256 amount) 
+        public
+        payable
+    {
         require(block.timestamp <= endTime, "Mint: Not in mint window");
         require(id < 6, "Mint: Invalid Id");
         require(amount <= 99, "Mint: Limit is 99");
