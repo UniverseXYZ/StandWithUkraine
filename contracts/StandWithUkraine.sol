@@ -37,7 +37,7 @@ contract StandWithUkraine is AbstractERC1155Factory  {
         require(block.timestamp <= endTime, "Mint: Not in mint window");
         require(id < 6, "Mint: Invalid Id");
         require(amount <= 99, "Mint: Limit is 99");
-        require(msg.value * amount >= cost * amount, "Mint: Incorrect value");
+        require(msg.value >= cost * amount, "Mint: Incorrect value");
 
         (bool sent, bytes memory data) = multisig.call{value: msg.value}("");
         require(sent, "Mint: Failed to send Ether");
@@ -50,15 +50,14 @@ contract StandWithUkraine is AbstractERC1155Factory  {
         payable
     {
         require(block.timestamp <= endTime, "Mint: Not in mint window");
-        require(id < 6, "Mint: Invalid Id");
         require(amount <= 99, "Mint: Limit is 99");
-        require(msg.value * amount >= cost * amount * 6, "Mint: Incorrect value");
+        require(msg.value >= cost * amount * 6, "Mint: Incorrect value");
 
         (bool sent, bytes memory data) = multisig.call{value: msg.value}("");
         require(sent, "Mint: Failed to send Ether");
 
-        for (uint i = 0; i < 6; i++) {
-            _mint(msg.sender, i, amount, "");
+        for (uint id = 0; id < 6; id++) {
+            _mint(msg.sender, id, amount, "");
         }
     }
 
