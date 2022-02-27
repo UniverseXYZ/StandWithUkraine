@@ -6,7 +6,7 @@ async function main() {
   now = Math.round(Date.now() / 1000);
 
   SWU = await ethers.getContractFactory("StandWithUkraine");
-  swu = await SWU.deploy("StandWithUkraine", "SWU", "ipfs://", "0x0000000000000000000000000000000000000000");
+  swu = await SWU.deploy("StandWithUkraine", "SWU", "ipfs://QmaPEzT6A47akrrUrLBFWwKzFtCQPcyCM5f7jxLtN5ZUew/", "0x1945A6Ce6B99E404fef9244B73158eA0A56a2266");
     
   console.log("SWU deployed to:", swu.address);
   //VERIFY COMMAND TO RUN IN TERMINAL - need to switch it to mainnet, plug in correct contract, ipfs, and multisig addr
